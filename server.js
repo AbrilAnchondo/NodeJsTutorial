@@ -37,6 +37,7 @@ const server = http.createServer((req, res) => {
     });
 
     //once it is done parsing
+    // here we are basically blocking the code execution
     return req.on('end', () => {
       const parsedData = Buffer.concat(body).toString();
       //console.log(parsedData);
