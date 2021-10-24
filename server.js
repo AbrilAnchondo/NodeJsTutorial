@@ -42,10 +42,11 @@ const server = http.createServer((req, res) => {
       const parsedData = Buffer.concat(body).toString();
       //console.log(parsedData);
       const message = parsedData.split('=')[1]; // to get the value from the key value pair sent by thte req
-      fs.writeFileSync('message.text', message);
-      res.statusCode = 302;
-      res.setHeader('Location', '/');
-      return res.end();
+      fs.writeFile('message.text', message, (err) => {
+        res.statusCode = 302;
+        res.setHeader('Location', '/');
+        return res.end();
+      });
     });
   }
   res.setHeader('Content-Type', 'text/html');
