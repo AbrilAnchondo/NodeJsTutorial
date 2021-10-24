@@ -37,7 +37,7 @@ const server = http.createServer((req, res) => {
     });
 
     //once it is done parsing
-    req.on('end', () => {
+    return req.on('end', () => {
       const parsedData = Buffer.concat(body).toString();
       //console.log(parsedData);
       const message = parsedData.split('=')[1]; // to get the value from the key value pair sent by thte req
