@@ -1,8 +1,23 @@
 // Core Modules: fs, os, path, http and https (to work with req and res, launch a server)
-// this modules need to be imported, not available globally by default
-const http = require('http');
 
-const routes = require('./routes.js');
+// this modules need to be imported, not available globally by default
+//const http = require("http");
+
+const express = require("express"); //exports a function so:
+
+const app = express(); //will initialize a new obj were express will manage a lot of things
+
+// use allows to add a middleware function executed for every incoming requests, receives 3 ars: req res and next
+//next()is a function passes to the other function, has to be executed to allow the req to travel onto the next middleware
+app.use((req, res, next) => {
+  console.log("In the middleware");
+  next();
+});
+
+app.use((req, res, next) => {
+  console.log("In the another middleware");
+  res.send("<h1>Hello form Express.js!</h1>");
+});
 
 // function reqListener(req, res) {
 // }
@@ -12,7 +27,10 @@ const routes = require('./routes.js');
 // event driven arquitechture
 // the arg is a callback that gets executed everytime a req reaches the server
 // createServer actually creates a server so to use it need to be stored in a variable
-const server = http.createServer(routes);
- 
+// const server = http.createServer(app); //with express this is not neeeded
+
 // node will keep this running to listen to evey req
-server.listen(3000);
+// server.listen(3000);
+
+// becuase we are using express
+app.listen(3000);
