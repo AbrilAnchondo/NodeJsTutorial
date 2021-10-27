@@ -29,9 +29,14 @@ app.use(express.urlencoded({ extended: true }));
 //   next();
 // });
 
-app.use(adminRoutes);
+app.use("/admin", adminRoutes);
 
 app.use(shopRoutes);
+
+//middleware to catch all requests: get, post etc
+app.use((req, res, next) => {
+  res.status(404).send("<h1>Page Not Found</h1>");
+});
 
 // function reqListener(req, res) {
 // }
