@@ -7,6 +7,9 @@ const express = require("express"); //exports a function so:
 
 const app = express(); //will initialize a new obj were express will manage a lot of things
 
+const adminRoutes = require("./routes/admin.js");
+const shopRoutes = require("./routes/shop.js");
+
 const bodyParser = require("body-parser");
 
 // use allows to add a middleware function executed for every incoming requests, receives 3 ars: req res and next
@@ -21,27 +24,14 @@ const bodyParser = require("body-parser");
 // extended is to parse nondefault features
 app.use(express.urlencoded({ extended: true }));
 
-app.use("/", (req, res, next) => {
-  console.log("this will always show up");
-  next();
-});
+// app.use("/", (req, res, next) => {
+//   console.log("this will always show up");
+//   next();
+// });
 
-app.use("/add-product", (req, res, next) => {
-  console.log("In the another middleware");
-  res.send(
-    "<form action='/product' method='POST'><input type='text' name='title'><button type='submit'>Add Product</button></form>"
-  );
-});
+app.use(adminRoutes);
 
-app.post("/product", (req, res, next) => {
-  console.log("data", req.body);
-  res.redirect("/");
-});
-
-app.use("/", (req, res, next) => {
-  console.log("In the another middleware");
-  res.send("<h1>Hello from Express.js!</h1>");
-});
+app.use(shopRoutes);
 
 // function reqListener(req, res) {
 // }
