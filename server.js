@@ -7,16 +7,40 @@ const express = require("express"); //exports a function so:
 
 const app = express(); //will initialize a new obj were express will manage a lot of things
 
+const bodyParser = require("body-parser");
+
 // use allows to add a middleware function executed for every incoming requests, receives 3 ars: req res and next
 //next()is a function passes to the other function, has to be executed to allow the req to travel onto the next middleware
-app.use((req, res, next) => {
-  console.log("In the middleware");
+// app.use((req, res, next) => {
+//   console.log("In the middleware");
+//   next();
+// });
+
+// parsing middleware
+// registers a middleware, it parses the data, calls next()
+// extended is to parse nondefault features
+app.use(express.urlencoded({ extended: true }));
+
+app.use("/", (req, res, next) => {
+  console.log("this will always show up");
   next();
 });
 
-app.use((req, res, next) => {
+app.use("/add-product", (req, res, next) => {
   console.log("In the another middleware");
-  res.send("<h1>Hello form Express.js!</h1>");
+  res.send(
+    "<form action='/product' method='POST'><input type='text' name='title'><button type='submit'>Add Product</button></form>"
+  );
+});
+
+app.post("/product", (req, res, next) => {
+  console.log("data", req.body);
+  res.redirect("/");
+});
+
+app.use("/", (req, res, next) => {
+  console.log("In the another middleware");
+  res.send("<h1>Hello from Express.js!</h1>");
 });
 
 // function reqListener(req, res) {
