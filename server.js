@@ -3,6 +3,7 @@
 // this modules need to be imported, not available globally by default
 //const http = require("http");
 
+const path = require("path");
 const express = require("express"); //exports a function so:
 
 const app = express(); //will initialize a new obj were express will manage a lot of things
@@ -35,7 +36,7 @@ app.use(shopRoutes);
 
 //middleware to catch all requests: get, post etc
 app.use((req, res, next) => {
-  res.status(404).send("<h1>Page Not Found</h1>");
+  res.status(404).sendFile(path.join(__dirname, "views", "404.html"));
 });
 
 // function reqListener(req, res) {
