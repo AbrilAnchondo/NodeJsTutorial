@@ -12,7 +12,7 @@ router.get("/add-product", (req, res, next) => {
 
 // /admin/product => POST
 router.post("/product", (req, res, next) => {
-  //console.log("data", req.body);
+  console.log("data", req.body);
   res.redirect("/");
 });
 

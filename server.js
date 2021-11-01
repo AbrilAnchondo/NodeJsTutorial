@@ -25,6 +25,9 @@ const bodyParser = require("body-parser");
 // extended is to parse nondefault features
 app.use(express.urlencoded({ extended: true }));
 
+//static middleware that forward the request to the public forlder
+app.use(express.static(path.join(__dirname, "public")));
+
 // app.use("/", (req, res, next) => {
 //   console.log("this will always show up");
 //   next();
