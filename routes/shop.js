@@ -11,7 +11,9 @@ router.get("/", (req, res, next) => {
   // __dirname is a global variable that holds the absolute path on our operating system to this project folder
   //console.log("products", adminData.products);
   //res.sendFile(path.join(rootDir, "views", "shop.html"));
-  res.render("shop");
+  const products = adminData.products;
+  console.log("getting products:", products);
+  res.render("shop", { products: products, docTitle: "Shop" });
 });
 
 module.exports = router;
