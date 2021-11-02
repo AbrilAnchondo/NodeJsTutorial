@@ -8,7 +8,7 @@ const express = require("express"); //exports a function so:
 
 const app = express(); //will initialize a new obj were express will manage a lot of things
 
-const adminRoutes = require("./routes/admin.js");
+const adminData = require("./routes/admin.js");
 const shopRoutes = require("./routes/shop.js");
 
 const bodyParser = require("body-parser");
@@ -33,7 +33,7 @@ app.use(express.static(path.join(__dirname, "public")));
 //   next();
 // });
 
-app.use("/admin", adminRoutes);
+app.use("/admin", adminData.routes);
 
 app.use(shopRoutes);
 
