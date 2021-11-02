@@ -10,7 +10,8 @@ router.get("/", (req, res, next) => {
   // requires an absolute path, this path is the root directory of operating system. We need the path core module
   // __dirname is a global variable that holds the absolute path on our operating system to this project folder
   //console.log("products", adminData.products);
-  res.sendFile(path.join(rootDir, "views", "shop.html"));
+  //res.sendFile(path.join(rootDir, "views", "shop.html"));
+  res.render("shop");
 });
 
 module.exports = router;

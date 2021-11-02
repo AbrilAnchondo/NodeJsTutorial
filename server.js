@@ -8,6 +8,11 @@ const express = require("express"); //exports a function so:
 
 const app = express(); //will initialize a new obj were express will manage a lot of things
 
+//setting a global configuration value
+app.set("view engine", "pug");
+// letting express know where to find our views, this already works by default
+app.set("views", "views");
+
 const adminData = require("./routes/admin.js");
 const shopRoutes = require("./routes/shop.js");
 
