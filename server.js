@@ -9,7 +9,7 @@ const express = require("express"); //exports a function so:
 const app = express(); //will initialize a new obj were express will manage a lot of things
 
 //setting a global configuration value
-app.set("view engine", "pug");
+app.set("view engine", "ejs");
 // letting express know where to find our views, this already works by default
 app.set("views", "views");
 
@@ -45,7 +45,7 @@ app.use(shopRoutes);
 //middleware to catch all requests: get, post etc
 app.use((req, res, next) => {
   //res.status(404).sendFile(path.join(__dirname, "views", "404.html"));
-  res.status(404).render("404");
+  res.status(404).render("404", { pageTitle: "Page Not Found" });
 });
 
 // function reqListener(req, res) {

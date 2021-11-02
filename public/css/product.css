@@ -3,7 +3,7 @@
   max-width: 90%;
   margin: auto;
 }
-/* .product-item {
+.product-item {
   width: 20rem;
   max-width: 95%;
 }
@@ -21,4 +21,4 @@
 
 .product__description {
   text-align: center;
-} */
+}

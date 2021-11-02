@@ -2,6 +2,7 @@ body {
   padding: 0;
   margin: 0;
   font-family: sans-serif;
+  background-color: whitesmoke;
 }
 main {
   padding: 1rem;
@@ -49,7 +50,7 @@ main {
   background-color: blue;
   color: whitesmoke;
 }
-/* .grid {
+.grid {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
@@ -63,6 +64,8 @@ main {
 .card__header,
 .card__content {
   padding: 1rem;
+  color: whitesmoke;
+  background-color: black;
 }
 
 .card__header h1,
@@ -81,11 +84,11 @@ main {
 }
 
 .card__actions {
-    padding: 1rem;
-    text-align: center;
+  padding: 1rem;
+  text-align: center;
 }
 
 .card__actions button,
 .card__actions a {
-    margin: 0 0.25rem;
-} */
+  margin: 0 0.25rem;
+}
