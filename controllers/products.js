@@ -1,6 +1,6 @@
 // product related logic
 
-const products = [];
+const Product = require("../models/product.js");
 
 exports.getAddProductPage = (req, res, next) => {
   //console.log("In the another middleware");
@@ -15,13 +15,13 @@ exports.getAddProductPage = (req, res, next) => {
 };
 
 exports.postAddProduct = (req, res, next) => {
-  //console.log("data", req.body);
-  products.push({ title: req.body.title });
-  //console.log("products arr", products);
+  const product = new Product(req.body.title);
+  product.save();
   res.redirect("/");
 };
 
 exports.getProducts = (req, res, next) => {
+  const products = Product.fetchAll();
   // requires an absolute path, this path is the root directory of operating system. We need the path core module
   // __dirname is a global variable that holds the absolute path on our operating system to this project folder
   //res.sendFile(path.join(rootDir, "views", "shop.html"));
