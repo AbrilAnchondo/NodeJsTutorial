@@ -4,6 +4,7 @@
 //const http = require("http");
 
 const path = require("path");
+const errorController = require("./controllers/error.js");
 const express = require("express"); //exports a function so:
 
 const app = express(); //will initialize a new obj were express will manage a lot of things
@@ -13,7 +14,7 @@ app.set("view engine", "ejs");
 // letting express know where to find our views, this already works by default
 app.set("views", "views");
 
-const adminData = require("./routes/admin.js");
+const adminRoutes = require("./routes/admin.js");
 const shopRoutes = require("./routes/shop.js");
 
 const bodyParser = require("body-parser");
@@ -38,15 +39,12 @@ app.use(express.static(path.join(__dirname, "public")));
 //   next();
 // });
 
-app.use("/admin", adminData.routes);
+app.use("/admin", adminRoutes);
 
 app.use(shopRoutes);
 
 //middleware to catch all requests: get, post etc
-app.use((req, res, next) => {
-  //res.status(404).sendFile(path.join(__dirname, "views", "404.html"));
-  res.status(404).render("404", { pageTitle: "Page Not Found" });
-});
+app.use(errorController.get404);
 
 // function reqListener(req, res) {
 // }
