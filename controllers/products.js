@@ -21,9 +21,10 @@ exports.postAddProduct = (req, res, next) => {
 };
 
 exports.getProducts = (req, res, next) => {
-  const products = Product.fetchAll();
+  Product.fetchAll((products) => {
+    res.render("shop", { products: products, pageTitle: "Shop", path: "/" });
+  });
   // requires an absolute path, this path is the root directory of operating system. We need the path core module
   // __dirname is a global variable that holds the absolute path on our operating system to this project folder
   //res.sendFile(path.join(rootDir, "views", "shop.html"));
-  res.render("shop", { products: products, pageTitle: "Shop", path: "/" });
 };
