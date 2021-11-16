@@ -4,9 +4,9 @@ exports.getAddProductPage = (req, res, next) => {
   res.render("admin/add-product", {
     pageTitle: "Add Product",
     path: "/admin/add-product",
-    // formCSS: true,
-    // productCSS: true,
-    // activeAddProduct: true
+    formCSS: true,
+    productCSS: true,
+    activeAddProduct: true,
   });
 };
 
@@ -17,7 +17,7 @@ exports.postAddProduct = (req, res, next) => {
   const description = req.body.description;
   const product = new Product(title, imageUrl, price, description);
   product.save();
-  console.log("new upload", product);
+  //console.log("new upload", product);
   res.redirect("/");
 };
 
