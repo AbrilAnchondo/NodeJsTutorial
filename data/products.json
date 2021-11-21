@@ -1,16 +1,1 @@
-[
-  {
-    "id": "12345",
-    "title": "Hat",
-    "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQ4zxRx26hY4yYUjIGSGk0oCbEIoq52XZu7g&usqp=CAU",
-    "description": "Hat",
-    "price": "39"
-  },
-  {
-    "id": "887",
-    "title": "Another Hat",
-    "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQ4zxRx26hY4yYUjIGSGk0oCbEIoq52XZu7g&usqp=CAU",
-    "description": "another hat",
-    "price": "500"
-  }
-]
+[{"id":"12345","title":"HatSSS","imageUrl":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQ4zxRx26hY4yYUjIGSGk0oCbEIoq52XZu7g&usqp=CAU","price":"99","description":"HatSSSS"},{"id":"887","title":"Another Hat","imageUrl":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQ4zxRx26hY4yYUjIGSGk0oCbEIoq52XZu7g&usqp=CAU","description":"another hat","price":"500"},{"id":"609","title":"asdf","imageUrl":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTubEpiYQVAp5pfVEstT0Q43CX6ODjq3Q4b-w&usqp=CAU","price":"33","description":"asdf"}]
