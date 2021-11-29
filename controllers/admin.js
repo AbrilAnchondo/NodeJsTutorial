@@ -30,7 +30,7 @@ exports.getEditProduct = (req, res, next) => {
     if (!product) {
       return redirect("/");
     }
-    console.log("edit product", product);
+    // console.log("edit product", product);
     res.render("admin/edit-product", {
       pageTitle: "Edit Product",
       path: "/admin/edit-product",
@@ -65,4 +65,12 @@ exports.getAdminProducts = (req, res, next) => {
       path: "/admin/products",
     });
   });
+};
+
+// add a method to delete product
+exports.postDeleteProduct = (req, res, next) => {
+  const productId = req.body.productId;
+  console.log("delete prod controller", productId);
+  Product.deleteById(productId);
+  res.redirect("/admin/products");
 };
