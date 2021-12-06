@@ -47,6 +47,10 @@ module.exports = class Cart {
       console.log("updatedCart from Cart", updatedCart);
       // finding the product I want to remove
       const product = updatedCart.products.find((prod) => prod.id === id);
+
+      // check if product is not in the cart no need to procedd
+      if (!product) return;
+
       console.log("product to remove from cart", product);
       updatedCart.products = updatedCart.products.filter(
         (prod) => prod.id !== id
